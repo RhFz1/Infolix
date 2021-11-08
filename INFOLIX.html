@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@395&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fabstract-explosion-red-dust-black-background-powder-splatter-dark-freeze-motion-splash-image112758329&psig=AOvVaw20iV8Gn4KAA31fpFTzk-ge&ust=1636383820252000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMiCpvfChvQCFQAAAAAdAAAAABAQ" type = "image/x-icon">
+
+    <title>INFOLIX</title>
+    
+</head>
+<body>
+    <h1 style="color: #e50914;size: 7em;font-family:'Heebo', sans-serif;" class="WebTitle">INFOLIX</h1>
+    <div class="outerbox">
+        <h1 style="color:white;font-size: 3.125rem;">Unlimited movies,Tv shows search for details.</h1>
+    </div>
+    <div class="nextbox">
+        <input type="text" class = "searchbox" style="color:white ;" placeholder="Enter Title..">
+        <button style="color:white; font-size: large;" class="response">Search</button>
+    </div>
+    
+    <div class="card">
+        <div class="details">
+            <div class="poster">
+                <img src=""  class ='fin_image'alt="">
+            </div>
+            
+            <div class="innerdetails">
+                <div class="moviename">
+                    <h4  class ="mov_name" style="color:rgb(212, 51, 51); font-size: xx-large;font-weight: 600;" >Movie name</h4>
+                </div>
+                <div class="otherdetails">
+                    <h4 class="Genre" style="color:white;">Genre</h4>
+                    <h4 class="Date"style="color:white;">Relase Date</h4>
+                    <h4 class="language"style="color:white;">Languages</h4>
+                    <h4 class="runtime"style="color:white;">Duration</h4>
+                </div>
+                <div class="rating">
+                    <h4 class ="imdb"style="color:rgb(212, 51, 51);">Imdb</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let movie={
+                apikey:'k_ibinuz1a',
+                fetchdata_2: function(movie_name) {
+                    fetch(
+                        'https://imdb-api.com/en/API/SearchMovie/k_ibinuz1a/'+movie_name
+                        ).then((response) => response.json())
+                    .then((data) => this.getim_id(data));
+                },
+                getim_id: function(data){
+                    const {id} = data.results[0];
+                    this.fetchdata(id);
+                },
+                fetchdata: function(id){
+                fetch(
+                    "https://imdb-api.com/en/API/Title/k_ibinuz1a/"+id
+                    ).then((response) => response.json())
+                    .then((data) => this.displaydata(data));
+
+
+                },
+                displaydata: function(data){
+                    const {fullTitle} = data;
+                    const {image} =data;
+                    const {releaseDate}=data;
+                    const {imDbRating}=data;
+                    const {genres}=data;
+                    const {runtimeStr}=data;
+                    const {languages}=data; 
+
+                    document.querySelector('.fin_image').src=image;
+                    document.querySelector('.mov_name').innerHTML=fullTitle;
+                    document.querySelector('.Genre').innerHTML="Genre: "+genres;
+                    document.querySelector('.Date').innerHTML="Date of Relase: "+releaseDate;
+                    document.querySelector('.language').innerHTML='Language: '+languages;
+                    document.querySelector('.runtime').innerHTML="Duration:"+runtimeStr;
+                    document.querySelector('.imdb').innerHTML=imDbRating;
+                },
+                search: function(){
+                    this.fetchdata_2(document.querySelector("input.searchbox").value);
+                }
+            };
+            document.querySelector('button.response').addEventListener('click',function(){
+                movie.search();
+            });
+            document.querySelector("input.searchbox").addEventListener('keyup',function(event){
+                if(event.key=="Enter"){
+                    movie.search();
+                }
+
+            });
+
+    </script>
+</body>
+
+</html>

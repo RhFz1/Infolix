@@ -1,0 +1,111 @@
+body{
+    background-image:url(https://miro.medium.com/max/1400/1*5lyavS59mazOFnb55Z6znQ.png);
+}
+.outerbox{
+    margin: 0;
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top: 4em;
+    font-family: 'Heebo', sans-serif;
+    
+}
+
+input.searchbox {
+    border-radius: 0px;
+    padding: 3px 135px;
+    font-weight: 270;
+    font-size: 120%;
+    justify-content: center;
+    text-align: center;
+    background-color:whitesmoke;
+    text-shadow: black;
+    font-weight: normal;
+    border-color:  #e50914;
+    border-width: 3px;
+    font-family:'Quicksand', sans-serif;
+    transition: 0.35s ease-in-out;
+}
+.response {
+    margin-left: 2px;
+    height: 34.5px;
+    width: 96px;
+    border-radius: 0px;
+    background-color: #e50914;
+    border: none;
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.nextbox{
+    display: flex;
+    justify-content: center;
+    margin-top: 6em;
+    font-family: 'Open Sans', sans-serif;
+}
+.avatar{
+    margin-top :3em;
+}
+.card {
+    margin-top: 9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.moviename {
+    display: flex;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.details {
+    border-radius: 35px;
+    background: #1a1a1ac0;
+    padding: 3em;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 325px;
+    max-width: 325px;
+    max-height: 695px;
+}
+.poster {
+    display: flex;
+    justify-content: center;
+}
+img {
+    border-radius: 35px;
+    max-width: 175px;
+}
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xxx-large;
+    margin-bottom: 0em;
+    font-weight: bold;
+    margin-top: -1.3em;
+}
+h1.WebTitle {
+    font-size: 73px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 52px;
+}
+button.response {
+    cursor: pointer;
+}
+input.searchbox{
+    cursor: pointer;
+}
+button.response:hover {
+    background: black;
+}
+input.searchbox:hover {
+    background:#cccccc;
+}

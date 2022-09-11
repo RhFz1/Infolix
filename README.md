@@ -1,2 +1,2 @@
 # Infolix
-My first website
+Website which shows details of the searched title.
